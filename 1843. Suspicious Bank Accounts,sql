@@ -1,0 +1,16 @@
+with incometable as(
+    SELECT a.account_id, year(t.day)*12+month(t.day) as month
+    FROM Accounts as a
+    LEFT JOIN Transactions as t using (account_id)
+    WHERE type='Creditor'
+    GROUP BY a.account_id, date_format(t.day, "%Y-%m"),max_income
+    HAVING SUM(amount)>max_income
+)
+
+SELECT DISTINCT t1.account_id
+FROM incometable as t1
+JOIN incometable as t2
+ON t1.account_id=t2.account_id and t2.month-t1.month between 0 and 1
+GROUP BY t1.account_id, t1.month
+HAVING count(t2.month)>=2
+ORDER BY t1.account_id
