@@ -59,3 +59,26 @@ To drop table or database
 To add, delete or modify columns in an existing table
 ALTER TABLE Customers 
 ADD Email varchar(255); / DROP COLUMN email
+
+Category Questions 
+Join
+175 - left join can include NULL values in the left table
+181 - self join
+196 - self join
+197 - self join
+Rank
+Case When
+1179 - sum(case when then else null end) as
+627 - set sex = (case when sex = 'm' then  'f' else 'm' end)  For swaping data
+Not IN
+196 - select (id not in (select ))  ***Derive merges optimization***
+603 -  (c.seat_id+1 IN (SELECT seat_id FROM Cinema WHERE free =1)  OR        c.seat_id-1 IN (SELECT seat_id FROM Cinema WHERE free =1))
+
+
+Having 
+1511 - Having sum(if(left, , )* ) >= 
+Date related
+Datediff: 197 - DATEDIFF(b.recordDate,a.recordDate) = 1
+
+
+ 
