@@ -66,10 +66,14 @@ Join
 181 - self join
 196 - self join
 197 - self join
+1303 - left join
+1068 - inner join - eliminate null values
 Rank
+1549 - RANK() OVER (PARTITION BY product_id ORDER BY order_date DESC
 Case When
 1179 - sum(case when then else null end) as
 627 - set sex = (case when sex = 'm' then  'f' else 'm' end)  For swaping data
+607 - HAVING SUM(CASE WHEN c.name = 'RED' THEN 1 ELSE 0 END) = 0
 Not IN
 196 - select (id not in (select ))  ***Derive merges optimization***
 603 -  (c.seat_id+1 IN (SELECT seat_id FROM Cinema WHERE free =1)  OR        c.seat_id-1 IN (SELECT seat_id FROM Cinema WHERE free =1))
@@ -77,8 +81,22 @@ Not IN
 
 Having 
 1511 - Having sum(if(left, , )* ) >= 
+1083 - HAVING SUM(product_name = 'S8') >= 1 AND SUM(product_name = 'iPhone') = 0   (select customer buy 1 product but don’t buy another product)
+1084 - HAVING min(sale_date) >= '2019-01-01' AND max(sale_date) <= '2019-03-31'  需要商品只在这个范围内，min max date最好的用法
+ 
+
+
+
 Date related
 Datediff: 197 - DATEDIFF(b.recordDate,a.recordDate) = 1
+1141 - WHERE DATEDIFF( '2019-07-27', activity_date) < 30 active user
+ Ifnull + Count + IF
+597 - IFNULL(ROUND(COUNT(DISTINCT requester_id,accepter_id)/ COUNT(DISTINCT sender_id, send_to_id),2),0.00)
+1322 - ROUND(IFNULL((sum(action = 'Clicked')/sum(action = 'Clicked' or action = 'viewed'))*100,0.00),2) AS ctr
+610 - SELECT *, IF(x+y>z AND y+z>x AND z+x>y, 'Yes', 'No') AS triangle
+Union
+1435 - bar chart 
 
 
- 
+With table AS () 
+511 - 
