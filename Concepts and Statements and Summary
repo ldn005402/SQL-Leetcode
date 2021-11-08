@@ -5,6 +5,7 @@ Key
 1.2 Foreign Key - a foreign key is a key used to link two tables together. 
               The relationship between 2 tables matches the Primary Key in one of the tables with a Foreign Key in the second table.
 1.3 Unique Key - A unique key is a set of one or more than one fields/columns of a table that uniquely identifies a record in a database table. You can say that it is little like a primary key but it can accept only one null value and it cannot have duplicate values.
+
 Joins - combine tables
 2.1 Left Join - returns all records from left table and match records from the right table
 2.2 Right Join - returns all records from right table and match records from the left table
@@ -12,10 +13,10 @@ Joins - combine tables
 2.4 Outer Join- returns all records where there is a match in either left or right table
 2.5 Self join - the table is joined with itself
 2.6 Cross join - is used to generate a paired combination of each row of the first table with each row of the second table. This join type is also known as cartesian join.
+
 Union and Union all - combine the result-set of two or more SELECT statements
-3.1 Requires: Same number and order of columns
-                 Similar data types
-            3.2 Difference between:  To allow duplicate values, use UNION ALL. 
+3.1 Requires: Same number and order of columns Similar data types
+3.2 Difference between:  To allow duplicate values, use UNION ALL. 
 Where and Having 
 The having clause was added because WHERE can’t be used with aggregate functions
 Where filtered data based on specific table condition
